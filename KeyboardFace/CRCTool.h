@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface CRCTool : NSObject
-
++ (NSArray *) createCommand:(short *) payload andLength:(int) length;
 @end

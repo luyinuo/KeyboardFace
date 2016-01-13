@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "DeviceInfo.h"
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "CRCTool.h"
 @interface ViewController ()<CBCentralManagerDelegate,CBPeripheralDelegate>
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) NSMutableArray *discoverdPeriparals;
@@ -31,6 +32,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    NSArray *array = @[@(-1),@(-2),@4];
+    for (NSNumber *nuber in array) {
+        NSLog(@"--=%@",nuber);
+    }
+    char buffer[] = {0xAB,0x00,0x00,0x09,0x49,0x25,0x00,0x03,0x02, 0x00, 0x26, 0x00, 0x04, 0x4B, 0x32, 0x50, 0x00};
+    for(int i= 0;i <sizeof(buffer)/sizeof(char) ; i++){
+        NSLog(@"xx  %hhu",buffer[i]);
+    }
+    
     
 }
 /*
@@ -71,8 +81,14 @@
 }
 - (IBAction)highLightLED:(id)sender {
 //    unsigned char buffer[] = {0x06, 0x00, 0x05, 0x00, 0x00};
-    char buffer[] = {0xAB,0x00,0x00,0x09,0x49,0x25,0x00,0x03,0x02, 0x00, 0x26, 0x00, 0x04, 0x4B, 0x32, 0x50, 0x00};
-    NSData *data = [NSData dataWithBytes:&buffer length:17];
+//    char buffer[] = {0xAB,0x00,0x00,0x09,0x49,0x25,0x00,0x03,0x02, 0x00, 0x26, 0x00, 0x04, 0x4B, 0x32, 0x50, 0x00};
+    short buffer[] = {0x02, 0x00, 0x26, 0x00, 0x04, 0x4B, 0x32, 0x50, 0x00};
+    NSArray *array = [CRCTool createCommand:buffer andLength:sizeof(buffer)/sizeof(short)];
+    char buff[512] = {0};
+    for (int i = 0; i<array.count; i++) {
+        buff[i] = [array[i] charValue];
+    }
+    NSData *data = [NSData dataWithBytes:&buff length:17];
     [self.peripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
 }
 

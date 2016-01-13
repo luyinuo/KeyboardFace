@@ -32,46 +32,50 @@
         }
         return crc;
     }
-    
-//Byte[] createCommand(short[] payload){
-//        int totalLen = 8 + sizeof(payload)/sizeof(short);
-//        Byte value[255] = {};
-//        // L1Header
-//        value[0] = (Byte) 0xAB;
-//        
-//        // 2+1+1+4
-//        value[1] = (Byte) 0x00;
-//        
-//        // L2 长度
-//        value[2] = (Byte) 0x00;
-//        value[3] = (Byte) sizeof(&payload)/sizeof(short);
-//        
-//        // CRC
-//        Byte crc[] = [CRCTool getCRC:payload];
-//        value[4] = crc[0];
-//        value[5] = crc[1];
-//        
-//        // SequenceID
-//        value[6] = (Byte) 0x00;
-//        value[7] = (Byte) 0x03;
-//        
-//        // L2 Command id
-//        int c = 0;
-//        for (int i = 8; i < totalLen; i++) {
-//            value[i] = (Byte) payload[c];
-//            c++;
-//        }
-//        return value;
-//}
 
-//(Byte[]) getCRC:(short[]) payload {
++ (NSArray *) createCommand:(short *) payload andLength:(int) length{
+        int totalLen = 8 + length;
+//        Byte value[255] = {};
+    NSMutableArray *value = [NSMutableArray array];
+        // L1Header
+
+        value[0] = @(0xAB);
+        
+        // 2+1+1+4
+        value[1] = @0x00;
+        
+        // L2 长度
+        value[2] = @0x00;
+        value[3] = @(9);
+        
+        // CRC
+        NSArray * crc = [CRCTool getCRC:payload andLength:length];
+        value[4] = crc[0];
+        value[5] = crc[1];
+        
+        // SequenceID
+        value[6] = @0x00;
+        value[7] = @0x03;
+        
+        // L2 Command id
+        int c = 0;
+        for (int i = 8; i < totalLen; i++) {
+            value[i] = @(payload[c]);
+            c++;
+        }
+        return value;
+}
+
++ (NSArray *) getCRC:(short*) payload andLength:(int) length {
 //        Byte crc[2] = {};
-//        int ret = [CRCTool bd_crc16:0 and:payload and:sizeof(&payload)/sizeof(short)];
-//        int hightSit = (ret & 0xFF00) >> 8;
-//        crc[0] = ;
-//        
-//        int lowSite = (ret & 0x00FF);
+    NSMutableArray *crc = [NSMutableArray array];
+        int ret = [CRCTool bd_crc16:0 and:payload and:length];
+        int hightSit = (ret & 0xFF00) >> 8;
+    [crc addObject:[NSNumber numberWithInt:hightSit]];
+    
+        int lowSite = (ret & 0x00FF);
 //        crc[1] = new Integer(lowSite).byteValue();
-//        return crc;
-//}
+    [crc addObject:[NSNumber numberWithInt:lowSite]];
+        return crc;
+}
 @end
