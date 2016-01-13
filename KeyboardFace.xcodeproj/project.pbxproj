@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481A35241C3CF55A00C25195 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A35231C3CF55A00C25195 /* DeviceInfo.m */; };
 		4877B0011C3372B900CDAECF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4877B0001C3372B900CDAECF /* main.m */; };
 		4877B0041C3372B900CDAECF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4877B0031C3372B900CDAECF /* AppDelegate.m */; };
 		4877B0071C3372B900CDAECF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4877B0061C3372B900CDAECF /* ViewController.m */; };
@@ -14,6 +15,8 @@
 		4877B00C1C3372BA00CDAECF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4877B00B1C3372BA00CDAECF /* Images.xcassets */; };
 		4877B00F1C3372BA00CDAECF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4877B00D1C3372BA00CDAECF /* LaunchScreen.xib */; };
 		4877B01B1C3372BA00CDAECF /* KeyboardFaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4877B01A1C3372BA00CDAECF /* KeyboardFaceTests.m */; };
+		4877B0251C33779000CDAECF /* emotions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4877B0241C33779000CDAECF /* emotions.plist */; };
+		488267521C463F3D0014D029 /* CRCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 488267511C463F3D0014D029 /* CRCTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		481A35221C3CF55A00C25195 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		481A35231C3CF55A00C25195 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
 		4877AFFB1C3372B900CDAECF /* KeyboardFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4877AFFF1C3372B900CDAECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4877B0001C3372B900CDAECF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +45,9 @@
 		4877B0141C3372BA00CDAECF /* KeyboardFaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardFaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4877B0191C3372BA00CDAECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4877B01A1C3372BA00CDAECF /* KeyboardFaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardFaceTests.m; sourceTree = "<group>"; };
+		4877B0241C33779000CDAECF /* emotions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = emotions.plist; path = ../emotions.plist; sourceTree = "<group>"; };
+		488267501C463F3D0014D029 /* CRCTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCTool.h; sourceTree = "<group>"; };
+		488267511C463F3D0014D029 /* CRCTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +97,10 @@
 				4877B00B1C3372BA00CDAECF /* Images.xcassets */,
 				4877B00D1C3372BA00CDAECF /* LaunchScreen.xib */,
 				4877AFFE1C3372B900CDAECF /* Supporting Files */,
+				481A35221C3CF55A00C25195 /* DeviceInfo.h */,
+				481A35231C3CF55A00C25195 /* DeviceInfo.m */,
+				488267501C463F3D0014D029 /* CRCTool.h */,
+				488267511C463F3D0014D029 /* CRCTool.m */,
 			);
 			path = KeyboardFace;
 			sourceTree = "<group>";
@@ -96,6 +108,7 @@
 		4877AFFE1C3372B900CDAECF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4877B0241C33779000CDAECF /* emotions.plist */,
 				4877AFFF1C3372B900CDAECF /* Info.plist */,
 				4877B0001C3372B900CDAECF /* main.m */,
 			);
@@ -201,6 +214,7 @@
 			files = (
 				4877B00A1C3372B900CDAECF /* Main.storyboard in Resources */,
 				4877B00F1C3372BA00CDAECF /* LaunchScreen.xib in Resources */,
+				4877B0251C33779000CDAECF /* emotions.plist in Resources */,
 				4877B00C1C3372BA00CDAECF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +235,9 @@
 			files = (
 				4877B0071C3372B900CDAECF /* ViewController.m in Sources */,
 				4877B0041C3372B900CDAECF /* AppDelegate.m in Sources */,
+				488267521C463F3D0014D029 /* CRCTool.m in Sources */,
 				4877B0011C3372B900CDAECF /* main.m in Sources */,
+				481A35241C3CF55A00C25195 /* DeviceInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +434,7 @@
 				4877B0201C3372BA00CDAECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4877B0211C3372BA00CDAECF /* Build configuration list for PBXNativeTarget "KeyboardFaceTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +443,7 @@
 				4877B0231C3372BA00CDAECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
